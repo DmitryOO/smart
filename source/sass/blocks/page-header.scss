@@ -72,3 +72,61 @@
     opacity: 0.7;
   }
 }
+
+@media (max-width: $tablet-width) {
+  .page-header__contacts span {
+    display: none;
+  }
+
+  .page-header__button {
+    display: none;
+  }
+
+  .page-header {
+    padding-top: 19px;
+  }
+
+  .page-header__contacts {
+    margin-top: 12px;
+  }
+
+  .page-header__contacts-item a {
+    padding-left: 14px;
+  }
+
+  .page-header__contacts-item--mail a::before {
+    width: 26px;
+    height: 19px;
+    background-size: cover;
+  }
+
+  .page-header__contacts-item--call a::before {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+  }
+
+  .page-header__contacts-item:nth-child(n+2) {
+    margin-left: 38px;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .page-header__logo-text {
+    display: none;
+  }
+
+  .page-header__logo-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .top-block__wrapper {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .page-header {
+    padding-top: 17px;
+  }
+}
