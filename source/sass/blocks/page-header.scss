@@ -121,12 +121,15 @@
     height: 38px;
   }
 
-  .top-block__wrapper {
-    padding-left: 17px;
-    padding-right: 17px;
-  }
-
   .page-header {
     padding-top: 17px;
+  }
+
+  .page-header__contacts {
+    margin-top: 5px;
+  }
+
+  .page-header__contacts-item:nth-child(n+2) {
+    margin-left: 27px;
   }
 }
