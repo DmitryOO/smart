@@ -1,0 +1,81 @@
+.advantages {
+  font-family: $mono;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-image: url("../img/advantages_background_desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 34%;
+
+  @media (min-resolution: $retina-dppx) {
+    background-image: url("../img/advantages_background_desktop_2x.png");
+  }
+}
+
+.advantages h3 {
+  font-family: $roboto;
+}
+
+.advantages__list {
+  list-style: none;
+  max-width: 1170px;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-top: 111px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.advantages__list h3 {
+  font-weight: normal;
+  font-size: 24px;
+  color: #00b2ff;
+  margin-bottom: 20px;
+}
+
+.advantages__list p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #666666;
+}
+
+.advantages__item {
+  max-width: 49%;
+  min-height: 300px;
+  background-color: #ffffff;
+  margin-bottom: 30px;
+  padding-top: 73px;
+  padding-left: 44px;
+  padding-right: 44px;
+  border: 1px solid #ebebeb;
+  border-left-color: #00b2ff;
+  border-left-width: 3px;
+  position: relative;
+
+  &:nth-child(2n) {
+    margin-left: 2%;
+  }
+}
+
+.advantages__item svg {
+  position: absolute;
+  left: 44px;
+  top: 40px;
+}
+
+// .advantages__item--providers svg {
+//   width: 35px;
+//   height: 35px;
+// }
+
+// .advantages__item--confidency svg {
+//   width: 36px;
+//   height: 31px;
+// }
+
+// .advantages__item--price svg {
+//   width: 35px;
+//   height: 35px;
+// }
