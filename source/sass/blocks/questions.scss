@@ -1,0 +1,156 @@
+.questions {
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: #00b2ff;
+  background-image: url("../img/form_background.png");
+  background-repeat: no-repeat;
+  background-position: 100% 62%;
+  background-size: 1745px auto;
+
+  @media (min-resolution: $retina-dppx) {
+    background-image: url("../img/form_background_2x.png");
+  }
+}
+
+.questions__wrapper {
+  max-width: 1195px;
+  min-height: 670px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 92px;
+  padding-bottom: 88px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.questions__image {
+  position: absolute;
+  left: -13px;
+  top: 162px;
+}
+
+.questions__form {
+  width: 590px;
+  min-height: 461px;
+  font-family: $mono;
+  color: #ffffff;
+  padding-left: 4px;
+  position: relative;
+  z-index: 2;
+}
+
+.questions__form h3 {
+  font-family: $roboto;
+  font-size: 36px;
+  font-weight: normal;
+  margin-top: 4px;
+  margin-bottom: 18px;
+}
+
+.questions__form p {
+  margin-left: 4px;
+  margin-top: 10px;
+  margin-bottom: 53px;
+}
+
+.questions__form input,
+.questions__form textarea {
+  background-color: #19baff;
+  border: none;
+  color: #ffffff;
+  padding-left: 18px;
+
+  &::placeholder {
+    color: #ffffff;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #4bbaff;
+  }
+}
+
+.questions_name-tel {
+  padding-left: 3px;
+  padding-right: 13px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.questions_name-tel input {
+  width: 270px;
+  height: 50px;
+}
+
+.questions__form textarea {
+  width: 570px;
+  height: 154px;
+  padding-top: 12px;
+}
+
+.questions__submit-agree {
+  margin-top: 39px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.questions__submit-agree input[type="submit"] {
+  @include button;
+  width: 270px;
+  height: 45px;
+}
+
+.questions__submit-agree input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.questions__submit-agree label {
+  width: 270px;
+  font-size: 14px;
+  line-height: 16px;
+  opacity: 0.8;
+  padding-left: 27px;
+  padding-top: 8px;
+  position: relative;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.questions__submit-agree label::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 8px;
+  left: -5px;
+  border: 1px solid #ffffff;
+}
+
+.questions__submit-agree input[type="checkbox"]:focus + label::before {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+
+
+.questions__submit-agree input[type="checkbox"]:checked + label::before {
+  background-image: url("../img/icon-check.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 1150px) {
+  .questions__image {
+    left: -125px;
+  }
+}

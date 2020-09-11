@@ -83,7 +83,17 @@
   var elements = document.querySelectorAll('#tel');
   for (var i = 0; i < elements.length; i++) {
     new IMask(elements[i], {
-      mask: '00000000000',
+      mask: '+7(000)0000000',
     });
   }
 })();
+
+(function () {
+  var tel = document.getElementById('tel');
+  var add7ToTel = function(){
+    tel.value='+7';
+    tel.removeEventListener('focus',add7ToTel);
+  };
+  tel.addEventListener('focus',add7ToTel);
+  })();
+

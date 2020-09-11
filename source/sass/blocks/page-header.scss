@@ -35,6 +35,14 @@
   }
 }
 
+.page-header__logo {
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1;
+  }
+}
+
 .page-header__contacts-item--mail a::before {
   content: "";
   width: 19px;
