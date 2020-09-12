@@ -13,7 +13,7 @@
   }
 }
 
-.top-block a {
+.top-block a:not(.page-header__logo) {
   color: #ffffff;
 
   &:hover,

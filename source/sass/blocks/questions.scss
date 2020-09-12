@@ -4,8 +4,8 @@
   background-color: #00b2ff;
   background-image: url("../img/form_background.png");
   background-repeat: no-repeat;
-  background-position: 100% 62%;
-  background-size: 1745px auto;
+  background-position: 100% 554%;
+  background-size: 360px 663px;
 
   @media (min-resolution: $retina-dppx) {
     background-image: url("../img/form_background_2x.png");
@@ -26,9 +26,21 @@
 }
 
 .questions__image {
+  width: 650px;
+  height: 500px;
   position: absolute;
-  left: -13px;
-  top: 162px;
+  left: -173px;
+  top: 82px;
+  background-image: url("../img/triangles.svg");
+  background-repeat: no-repeat;
+  background-position-y: -142px;
+  background-position-x: -15px;
+}
+
+.questions__image img {
+  position: absolute;
+  left: 160px;
+  top: 80px;
 }
 
 .questions__form {
@@ -73,7 +85,7 @@
   }
 }
 
-.questions_name-tel {
+.questions__name-tel {
   padding-left: 3px;
   padding-right: 13px;
   margin-bottom: 40px;
@@ -81,7 +93,7 @@
   justify-content: space-between;
 }
 
-.questions_name-tel input {
+.questions__name-tel input {
   width: 270px;
   height: 50px;
 }
@@ -151,6 +163,138 @@
 
 @media (max-width: 1150px) {
   .questions__image {
-    left: -125px;
+    left: -300px;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .questions {
+    background-image: none;
+  }
+
+  .questions__image {
+    display: none;
+  }
+
+  .questions__wrapper {
+    min-height: 664px;
+    width: 600px;
+    padding-top: 80px;
+    display: block;
+  }
+
+  .questions__form {
+    width: 100%;
+  }
+
+  .questions__form h3 {
+    font-size: 32px;
+    margin-bottom: 23px;
+  }
+
+  .questions__form p {
+    margin-bottom: 54px;
+    width: 100%;
+  }
+
+  .questions__form textarea {
+    width: 591px;
+    height: 160px;
+    margin-left: 3px;
+  }
+
+  .questions__name-tel {
+    padding-right: 0;
+    margin-bottom: 43px;
+  }
+
+  .questions__name-tel input {
+    width: 280px;
+    height: 52px;
+  }
+
+  .questions__submit-agree {
+    margin-top: 40px;
+    padding-left: 3px;
+  }
+
+  .questions__submit-agree input[type="submit"] {
+    width: 280px;
+    height: 47px;
+  }
+
+  .questions__submit-agree label::before {
+    width: 17px;
+    height: 16px;
+    top: 10px;
+    left: -4px;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .questions {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .questions__wrapper {
+    width: 100%;
+    min-height: 0;
+    padding-top: 26px;
+    padding-bottom: 42px;
+  }
+
+  .questions__form {
+    padding-left: 0;
+  }
+
+  .questions__form h3 {
+    font-size: 28px;
+    line-height: 38px;
+    margin-bottom: 15px;
+  }
+
+  .questions__form p {
+    line-height: 22px;
+    margin-left: 0;
+    margin-bottom: 26px;
+  }
+
+  .questions__name-tel {
+    padding-left: 0;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .questions__name-tel input {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .questions__form textarea {
+    width: 100%;
+    height: 104px;
+    margin-left: auto;
+  }
+
+  .questions__submit-agree {
+    margin-top: 26px;
+    padding-left: 0;
+    flex-direction: column;
+  }
+
+  .questions__submit-agree input[type="submit"] {
+    width: 100%;
+  }
+
+  .questions__submit-agree label {
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 34px;
+  }
+
+  .questions__submit-agree label::before {
+    top: 31px;
+    left: 0;
   }
 }
