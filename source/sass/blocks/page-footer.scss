@@ -1,9 +1,43 @@
 .page-footer {
   min-height: 316px;
-  margin-left: auto;
-  margin-right: auto;
+  font-family: $mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 25px;
+  background-color: #fafafa;
 }
 
-.page-footer__wrapper {
-  max-width: 1420px;
+.page-footer h3 {
+  font-family: $roboto;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
+
+.page-footer__logo {
+  min-width: 220px;
+}
+
+.page-footer__info {
+  max-width: 1420px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 66px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-footer__logo-socials > p {
+  display: none;
+}
+
+.page-footer__logo-socials {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-footer__logo-text {
+  margin-left: 9px;
+}
+

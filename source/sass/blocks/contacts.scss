@@ -1,0 +1,15 @@
+.contacts__list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contacts__list li,
+.contacts__list a {
+  color: rgba($color: #1b2d37, $alpha: 0.5);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: rgba($color: #1b2d37, $alpha: 0.7);
+  }
+}

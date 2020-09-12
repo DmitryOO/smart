@@ -1,0 +1,36 @@
+.socials {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+}
+
+.socials__link span {
+  visibility: hidden;
+}
+
+.socials__link {
+  display: block;
+  width: 27px;
+  height: 27px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 0.7;
+  }
+
+  &--facebook {
+    background-image: url("../img/icon-facebook.svg");
+  }
+
+  &--class {
+    background-image: url("../img/icon-class.svg");
+  }
+
+  &--vk {
+    background-image: url("../img/icon-vk.svg");
+  }
+}
