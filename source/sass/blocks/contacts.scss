@@ -6,10 +6,67 @@
 .contacts__list li,
 .contacts__list a {
   color: rgba($color: #1b2d37, $alpha: 0.5);
+}
 
+.contacts__list a {
   &:hover,
   &:focus,
   &:active {
     color: rgba($color: #1b2d37, $alpha: 0.7);
+  }
+}
+
+.contacts h3 {
+  margin-top: 14px;
+  margin-bottom: 21px;
+}
+
+@media (max-width: $tablet-width) {
+  .contacts__item {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .contacts {
+    position: relative;
+    width: 100%;
+  }
+
+  .contacts h3 {
+    margin-left: 14px;
+    margin-top: 0;
+    margin-bottom: 13px;
+  }
+
+  .contacts__list {
+    display: none;
+    margin-left: 14px;
+    margin-top: 28px;
+  }
+
+  .contacts input {
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contacts label {
+    @include open;
+    right: -19px;
+    top: 28px;
+  }
+
+  .contacts input[type="checkbox"]:focus + label {
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+
+  .contacts input[type="checkbox"]:checked + label {
+    background-image: url("../img/icon-minus.svg");
+  }
+
+  .contacts input[type="checkbox"]:checked ~ .contacts__list {
+    display: block;
   }
 }

@@ -201,22 +201,24 @@
               <ul class="page-footer__socials socials">
                 <li class="socials__item">
                   <a href="#" class="socials__link socials__link--facebook">
-                    <span>фейсбук</span>
+                    <span class="visually-hidden">фейсбук</span>
                   </a>
                 </li>
                 <li class="socials__item">
                   <a href="#" class="socials__link socials__link--class">
-                    <span>одноклассники</span>
+                    <span class="visually-hidden">одноклассники</span>
                   </a>
                 </li>
                 <li class="socials__item">
                   <a href="#" class="socials__link socials__link--vk">
-                    <span>вконтакте</span>
+                    <span class="visually-hidden">вконтакте</span>
                   </a>
                 </li>
               </ul>
             </div>
             <div class="page-footer__blocks blocks">
+              <input type="checkbox" id="blocks" name="blocks">
+              <label for="blocks"></label>
               <h3>разделы сайта</h3>
               <ul class="blocks__list blocks__list--1">
                 <li class="blocks__item">
@@ -245,6 +247,8 @@
               </ul>
             </div>
             <div class="page-footer__contacts contacts">
+              <input type="checkbox" id="contact" name="contacts" checked="">
+              <label for="contact"></label>
               <h3>Наш офис</h3>
               <ul class="contacts__list">
                 <li class="contacts__item contacts__item--adress">
@@ -262,17 +266,20 @@
               </ul>
             </div>
           </div>
-          <ul class="page-footer__copyright copyright">
-            <li>Все права защищены</li>
-            <li>1999-2018 SD Service Devices</li>
-            <li>
-              <a href="#">Условия конфиденциальности</a>
-            </li>
-            <li>
-              <a href="#">Developed by wow studio</a>
-            </li>
-          </ul>
-
+          <div class="page-footer__copyright copyright">
+            <ul class="copyright__list">
+              <li class="copyright__item copyright__item--rights">Все права защищены</li>
+              <li class="copyright__item copyright__item--years">1999-2018 SD Service Devices</li>
+              <li class="copyright__item">
+                <a href="#">Условия конфиденциальности</a>
+              </li>
+              <li class="copyright__item">
+                <a href="#">Developed by wow studio</a>
+              </li>
+            </ul>
+          </div>
     </footer>
+    <script src="js/vendor.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

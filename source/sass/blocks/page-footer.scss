@@ -13,6 +13,8 @@
   font-size: 15px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  margin-top: 0;
+  color: #1b2d37;
 }
 
 .page-footer__logo {
@@ -20,10 +22,13 @@
 }
 
 .page-footer__info {
-  max-width: 1420px;
+  max-width: 1462px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 66px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
   display: flex;
   justify-content: space-between;
 }
@@ -35,9 +40,98 @@
 .page-footer__logo-socials {
   display: flex;
   flex-direction: column;
+  margin-left: -3px;
+  position: relative;
 }
 
 .page-footer__logo-text {
   margin-left: 9px;
 }
 
+.page-footer__blocks {
+  margin-top: -4px;
+  margin-left: 163px;
+}
+
+.page-footer__contacts {
+  margin-top: -17px;
+}
+
+@media (max-width: $tablet-width) {
+  .page-footer__info {
+    flex-wrap: wrap;
+    padding: 0;
+    padding-bottom: 20px;
+  }
+
+  .page-footer__logo-socials {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 18px;
+    padding-bottom: 19px;
+
+    &::after {
+      @include line;
+      bottom: 0;
+      top: auto;
+    }
+  }
+
+  .page-footer__logo-socials > p {
+    display: inline-block;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #1b2d37;
+    opacity: 0.5;
+    margin-left: 12px;
+    margin-top: 17px;
+  }
+
+  .page-footer__logo {
+    margin-left: 27px;
+  }
+
+  .page-footer__blocks {
+    margin-left: 25px;
+    margin-top: 34px;
+  }
+
+  .page-footer__contacts {
+    margin-top: 20px;
+    margin-right: 36px;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .page-footer__logo {
+    margin-left: 9px;
+  }
+
+  .page-footer__logo-socials {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 45px;
+    padding-bottom: 40px;
+  }
+
+  .page-footer__logo-socials > p {
+    margin-left: 8px;
+    margin-top: 19px;
+  }
+
+  .page-footer__logo-text {
+    margin-left: 8px;
+  }
+
+  .page-footer__info {
+    padding-bottom: 0;
+  }
+
+  .page-footer__contacts {
+    margin-top: 0;
+  }
+}

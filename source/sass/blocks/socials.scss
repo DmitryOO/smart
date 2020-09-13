@@ -1,7 +1,13 @@
 .socials {
   list-style: none;
   padding-left: 0;
+  margin-top: 46px;
   display: flex;
+  flex-wrap: wrap;
+}
+
+.socials__item {
+  margin-right: 17px;
 }
 
 .socials__link span {
@@ -32,5 +38,23 @@
 
   &--vk {
     background-image: url("../img/icon-vk.svg");
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .socials {
+    margin-top: 13px;
+    margin-right: 4px;
+  }
+
+  .socials__item {
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .socials {
+    margin-top: 18px;
+    margin-right: -19px;
   }
 }
