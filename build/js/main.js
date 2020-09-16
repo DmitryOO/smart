@@ -1,68 +1,5 @@
 'use strict';
 
-// (function () {
-//   var header = document.querySelector('.page-header');
-//   var logo = document.querySelector('.page-header__logo');
-//   var menu = document.querySelector('.header-menu');
-//   var toggle = document.querySelector('.page-header__toggle');
-//   var menuItems = document.querySelectorAll('.header-menu__item a');
-
-//   var activateJS = function () {
-//     header.classList.remove('page-header--noJS');
-//     logo.classList.remove('page-header__logo--noJS');
-//     menu.classList.remove('header-menu--noJS');
-//     toggle.classList.remove('page-header__toggle--noJS');
-//     toggle.addEventListener('click', onOpenMenu);
-//   };
-
-//   var onOpenMenu = function () {
-//     menu.style.display = 'block';
-//     menu.style.position = 'fixed';
-//     menu.style.top = '0';
-//     menu.style.left = '0';
-//     menu.style.height = '100%';
-//     menu.style.zIndex = '1000';
-//     logo.style.display = 'none';
-//     toggle.style.position = 'fixed';
-//     toggle.style.right = '0';
-//     toggle.style.zIndex = '1001';
-//     toggle.classList.add('page-header__toggle--close');
-//     toggle.addEventListener('click', onCloseMenu);
-//     toggle.removeEventListener('click', onOpenMenu);
-//     menuItems.forEach(function (item) {
-//       item.addEventListener('click', onCloseMenu);
-//     });
-//   };
-
-//   var onCloseMenu = function () {
-//     menu.style.display = 'none';
-//     logo.style.display = 'block';
-//     toggle.style.position = 'static';
-//     toggle.classList.remove('page-header__toggle--close');
-//     toggle.addEventListener('click', onOpenMenu);
-//     toggle.removeEventListener('click', onCloseMenu);
-//     menuItems.forEach(function (item) {
-//       item.removeEventListener('click', onCloseMenu);
-//     });
-//   };
-
-//   var onResizeJS = function () {
-//     if (window.innerWidth < 1024) {
-//       activateJS();
-//     } else {
-//       header.classList.add('page-header--noJS');
-//       logo.classList.add('page-header__logo--noJS');
-//       menu.classList.add('header-menu--noJS');
-//       toggle.classList.add('page-header__toggle--noJS');
-//       toggle.removeEventListener('click', onOpenMenu);
-//     }
-//   };
-//   if (window.innerWidth < 1024) {
-//     activateJS();
-//   }
-//   window.addEventListener('resize', onResizeJS);
-// })();
-
 (function () {
 
   var cropElement = document.querySelectorAll('.about__crop-text');
@@ -97,3 +34,91 @@
   tel.addEventListener('focus',add7ToTel);
   })();
 
+(function () {
+  var name = document.getElementById ('name');
+  var popupGradient = document.querySelector('.popup-gradient');
+  var sendButton = document.querySelector ('.questions__submit-agree input[type="submit"]');
+  var closeButton = document.querySelector ('.questions__close-button');
+  var questions = document.querySelector ('.questions');
+  var headerButton = document.querySelector ('.page-header__button');
+  var questionsHeader = document.querySelector ('.questions__form h3');
+  var questionsText = document.querySelector ('.questions__form p');
+  var questionsSubmit = document.querySelector ('.questions__submit-agree input[type="submit"]');
+
+  var changeText = function () {
+    questionsHeader.innerText = 'Закажите звонок';
+    questionsText.innerText = 'Оставьте контакты, мы проконсультируем вас бесплатно в удобное время';
+    questionsSubmit.value = 'ОТПРАВИТЬ';
+  }
+
+  var returnText = function () {
+    questionsHeader.innerText = 'Остались вопросы? Задайте их нам!';
+    questionsText.innerText = 'Мы проконсультируем Вас бесплатно';
+    questionsSubmit.value = 'Задать вопрос';
+  }
+
+  var onShowPopup = function () {
+    popupGradient.style.display = 'block';
+    questions.classList.add('questions--js');
+    changeText();
+    closeButton.addEventListener('click', onClosePopup);
+    sendButton.addEventListener('submit', onClosePopup);
+    popupGradient.addEventListener('click', onClosePopup);
+    headerButton.removeEventListener ('click', onShowPopup);
+    document.addEventListener('keydown', onCloseEsc);
+    yourname.focus();
+  }
+
+  var onCloseEsc = function (evtKey) {
+    if (evtKey.key === 'Escape') {
+      onClosePopup();
+    }
+  };
+
+  var onClosePopup = function () {
+    popupGradient.style.display = 'none';
+    questions.classList.remove('questions--js');
+    closeButton.removeEventListener('click', onClosePopup);
+    sendButton.removeEventListener('submit', onClosePopup);
+    headerButton.addEventListener ('click', onShowPopup);
+    returnText();
+  }
+
+  headerButton.addEventListener ('click', onShowPopup);
+})();
+
+(function () {
+  function persistInput(input) {
+    var key = "input-" + input.id;
+
+    var storedValue = localStorage.getItem(key);
+
+    if (storedValue)
+        input.value = storedValue;
+
+    input.addEventListener('input', function ()
+    {
+        localStorage.setItem(key, input.value);
+    });
+  }
+  persistInput(yourname);
+  persistInput(tel);
+  persistInput(question);
+})();
+
+(function() {
+  const anchors = document.querySelectorAll('a[href*="#"]')
+
+  for (let anchor of anchors) {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault()
+
+      const blockID = anchor.getAttribute('href').substr(1)
+
+      document.getElementById(blockID).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    })
+  }
+})();
