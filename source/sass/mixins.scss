@@ -33,6 +33,7 @@
 }
 
 @mixin open {
+  content: "";
   width: 16px;
   height: 16px;
   position: absolute;

@@ -118,6 +118,7 @@
   @include button;
   width: 270px;
   height: 45px;
+  order: -1;
 }
 
 .questions__submit-agree input[type="checkbox"] {

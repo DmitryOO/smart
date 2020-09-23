@@ -122,3 +122,66 @@
     })
   }
 })();
+
+(function () {
+  function addEvents(id) {
+      var field = document.getElementById(id);
+      field.onfocus = function () {
+          if (this.value == "Ваш вопрос") {
+              this.value = "";
+          }
+      };
+      field.onblur = function () {
+          if (this.value == "") {
+              this.value = "Ваш вопрос";
+          }
+      };
+  }
+  addEvents("question");
+}) ();
+
+( function () {
+  var blocks = document.querySelector('.blocks');
+  var blocksButton = document.querySelector('.blocks__button');
+  var contacts = document.querySelector('.contacts');
+  var contactsButton = document.querySelector('.contacts__button');
+
+  var addJStoBlocks = function () {
+    blocks.classList.toggle ('blocks--activeJS');
+    blocksButton.classList.toggle ('blocks__button--minus');
+    contacts.classList.add ('contacts--activeJS');
+    contactsButton.classList.remove ('contacts__button--minus');
+  };
+
+  var addJStoContacts = function () {
+    contacts.classList.toggle ('contacts--activeJS');
+    contactsButton.classList.toggle ('contacts__button--minus');
+    blocks.classList.add ('blocks--activeJS');
+    blocksButton.classList.remove ('blocks__button--minus');
+  };
+
+  var activateJS = function() {
+
+  blocks.classList.add('blocks--activeJS');
+  contacts.classList.add('contacts--activeJS');
+
+  blocksButton.addEventListener('click', addJStoBlocks);
+  contactsButton.addEventListener('click', addJStoContacts);
+  }
+
+  if (window.innerWidth < 768) {
+    activateJS();
+  }
+
+  var onResizeJS = function () {
+    if (window.innerWidth < 1024) {
+      activateJS();
+    } else {
+      blocksButton.removeEventListener('click', addJStoBlocks);
+      contactsButton.removeEventListener('click', addJStoContacts);
+    }
+  }
+
+  window.addEventListener('resize', onResizeJS);
+})();
+

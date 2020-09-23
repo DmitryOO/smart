@@ -3,6 +3,12 @@
   padding-left: 0;
 }
 
+.contacts label {
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+}
+
 .contacts__list li,
 .contacts__list a {
   color: rgba($color: #1b2d37, $alpha: 0.5);
@@ -16,12 +22,30 @@
   }
 }
 
-.contacts h3 {
-  margin-top: 14px;
-  margin-bottom: 21px;
+.contacts__button {
+  font-family: $roboto;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #1b2d37;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 14px;
+  margin-left: 0;
+  padding: 0;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 @media (max-width: $tablet-width) {
+  .contacts__button {
+    margin-bottom: 9px;
+    margin-top: 43px;
+  }
+
   .contacts__item {
     max-width: 350px;
   }
@@ -33,40 +57,41 @@
     width: 100%;
   }
 
-  .contacts h3 {
-    margin-left: 14px;
+  .contacts__button {
+    padding-left: 14px;
+    padding-top: 28px;
+    padding-bottom: 25px;
     margin-top: 0;
-    margin-bottom: 13px;
+    margin-bottom: 0;
   }
 
   .contacts__list {
-    display: none;
     margin-left: 14px;
-    margin-top: 28px;
+    margin-top: 6px;
+    padding-bottom: 11px;
   }
 
-  .contacts input {
-    height: 0;
-    width: 0;
-    margin: 0;
-    padding: 0;
-  }
-
-  .contacts label {
+  .contacts__button::after {
     @include open;
     right: -19px;
     top: 28px;
+    display: none;
   }
 
-  .contacts input[type="checkbox"]:focus + label {
-    outline: -webkit-focus-ring-color auto 1px;
+  .contacts--activeJS::after {
+    display: block;
   }
 
-  .contacts input[type="checkbox"]:checked + label {
+  .contacts--activeJS .contacts__list {
+    display: none;
+  }
+
+  .contacts__button--minus::after {
+    display: block;
     background-image: url("../img/icon-minus.svg");
   }
 
-  .contacts input[type="checkbox"]:checked ~ .contacts__list {
+  .contacts--activeJS .contacts__button::after {
     display: block;
   }
 }
