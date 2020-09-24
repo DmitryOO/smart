@@ -1,18 +1,25 @@
 'use strict';
 
 (function () {
-
   var cropElement = document.querySelectorAll('.about__crop-text');
   var  size = 200;
   var  endCharacter = '..';
 
   cropElement.forEach(el => {
       let text = el.innerHTML;
-
-      if ((el.innerHTML.length > size) && (window.innerWidth < 1024)) {
-          text = text.substr(0, size);
-          el.innerHTML = text + endCharacter;
+      let cropText = text.substr(0, size);
+      let onResizeText = function () {
+      if (window.innerWidth > 1023) {
+        document.querySelector('.about__crop-text').innerHTML = text;
+      } else {
+          document.querySelector('.about__crop-text').innerHTML = cropText + endCharacter;
+        }
       }
+      if ((el.innerHTML.length > size) && (window.innerWidth < 1024)) {
+          el.innerHTML = cropText + endCharacter;
+          console.log(text)
+      }
+      window.addEventListener('resize', onResizeText);
   });
 }());
 
@@ -35,32 +42,42 @@
   })();
 
 (function () {
-  var name = document.getElementById ('name');
   var popupGradient = document.querySelector('.popup-gradient');
   var sendButton = document.querySelector ('.questions__submit-agree input[type="submit"]');
   var closeButton = document.querySelector ('.questions__close-button');
   var questions = document.querySelector ('.questions');
   var headerButton = document.querySelector ('.page-header__button');
-  var questionsHeader = document.querySelector ('.questions__form h3');
-  var questionsText = document.querySelector ('.questions__form p');
-  var questionsSubmit = document.querySelector ('.questions__submit-agree input[type="submit"]');
+  var questionsHeader = document.querySelector ('.questions__form h3:nth-of-type(1)');
+  var questionsPopupHeader = document.querySelector ('.questions__form h3:nth-last-of-type(1)')
+  var questionsText = document.querySelector ('.questions__form p:nth-of-type(1)');
+  var questionsPopupText = document.querySelector ('.questions__form p:nth-last-of-type(1)');
+  var questionsSubmit = document.querySelector ('.questions__submit-agree input:nth-last-of-type(2)');
+  var questionsPopupSubmit = document.querySelector ('.questions__submit-agree input:nth-last-of-type(1)');
+  var body = document.querySelector ('body');
 
   var changeText = function () {
-    questionsHeader.innerText = 'Закажите звонок';
-    questionsText.innerText = 'Оставьте контакты, мы проконсультируем вас бесплатно в удобное время';
-    questionsSubmit.value = 'ОТПРАВИТЬ';
+    questionsHeader.style.display = 'none';
+    questionsPopupHeader.style.display = 'block';
+    questionsText.style.display = 'none';
+    questionsPopupText.style.display = 'block';
+    questionsSubmit.style.display = 'none';
+    questionsPopupSubmit.style.display = 'flex';
   }
 
   var returnText = function () {
-    questionsHeader.innerText = 'Остались вопросы? Задайте их нам!';
-    questionsText.innerText = 'Мы проконсультируем Вас бесплатно';
-    questionsSubmit.value = 'Задать вопрос';
+    questionsHeader.style.display = 'block';
+    questionsPopupHeader.style.display = 'none';
+    questionsText.style.display = 'block';
+    questionsPopupText.style.display = 'none';
+    questionsSubmit.style.display = 'flex';
+    questionsPopupSubmit.style.display = 'none';
   }
 
   var onShowPopup = function () {
     popupGradient.style.display = 'block';
     questions.classList.add('questions--js');
     changeText();
+    body.style.overflow = 'hidden';
     closeButton.addEventListener('click', onClosePopup);
     sendButton.addEventListener('submit', onClosePopup);
     popupGradient.addEventListener('click', onClosePopup);
@@ -76,6 +93,7 @@
   };
 
   var onClosePopup = function () {
+    body.style.overflow = 'visible';
     popupGradient.style.display = 'none';
     questions.classList.remove('questions--js');
     closeButton.removeEventListener('click', onClosePopup);
@@ -125,16 +143,16 @@
 
 (function () {
   function addEvents(id) {
-      var field = document.getElementById(id);
-      field.onfocus = function () {
-          if (this.value == "Ваш вопрос") {
-              this.value = "";
-          }
-      };
-      field.onblur = function () {
-          if (this.value == "") {
-              this.value = "Ваш вопрос";
-          }
+    var field = document.getElementById(id);
+    field.onfocus = function () {
+      if (this.value == "Ваш вопрос") {
+          this.value = "";
+      }
+    };
+    field.onblur = function () {
+      if (this.value == "") {
+          this.value = "Ваш вопрос";
+      }
       };
   }
   addEvents("question");
@@ -161,7 +179,8 @@
   };
 
   var activateJS = function() {
-
+  contactsButton.removeAttribute ('disabled');
+  blocksButton.removeAttribute ('disabled');
   blocks.classList.add('blocks--activeJS');
   contacts.classList.add('contacts--activeJS');
 
@@ -174,11 +193,13 @@
   }
 
   var onResizeJS = function () {
-    if (window.innerWidth < 1024) {
+    if (window.innerWidth < 768) {
       activateJS();
     } else {
       blocksButton.removeEventListener('click', addJStoBlocks);
       contactsButton.removeEventListener('click', addJStoContacts);
+      contactsButton.setAttribute ('disabled', 'disabled');
+      blocksButton.setAttribute ('disabled', 'disabled');
     }
   }
 

@@ -65,10 +65,18 @@
   margin-bottom: 18px;
 }
 
+.questions__form h3:nth-last-of-type(1) {
+  display: none;
+}
+
 .questions__form p {
   margin-left: 4px;
   margin-top: 10px;
   margin-bottom: 53px;
+}
+
+.questions__form p:nth-last-of-type(1) {
+  display: none;
 }
 
 .questions__form input,
@@ -119,6 +127,10 @@
   width: 270px;
   height: 45px;
   order: -1;
+}
+
+.questions__submit-agree input[type="submit"]:nth-last-of-type(1) {
+  display: none;
 }
 
 .questions__submit-agree input[type="checkbox"] {

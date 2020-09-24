@@ -3,11 +3,6 @@
   padding-left: 0;
 }
 
-.contacts label {
-  color: transparent;
-  font-size: 0;
-  line-height: 0;
-}
 
 .contacts__list li,
 .contacts__list a {
@@ -37,7 +32,6 @@
   text-align: left;
   background-color: transparent;
   border: none;
-  outline: none;
 }
 
 @media (max-width: $tablet-width) {
@@ -57,12 +51,23 @@
     width: 100%;
   }
 
+  .contacts__item {
+    padding-right: 20px;
+  }
+
   .contacts__button {
     padding-left: 14px;
     padding-top: 28px;
     padding-bottom: 25px;
     margin-top: 0;
     margin-bottom: 0;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &:active {
+      opacity: 0.9;
+    }
   }
 
   .contacts__list {
@@ -73,8 +78,8 @@
 
   .contacts__button::after {
     @include open;
-    right: -19px;
-    top: 28px;
+    right: 17px;
+    top: 29px;
     display: none;
   }
 

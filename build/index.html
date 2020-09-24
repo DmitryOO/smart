@@ -13,6 +13,7 @@
     <link rel="preload" href="fonts/roboto-condensed-v18-latin_cyrillic-700.woff2" as="font">
   </head>
   <body>
+    <div>
     <h1 class="visually-hidden">продажа печатных плат</h1>
     <section class="top-block">
       <h2 class="visually-hidden">верхний блок</h2>
@@ -41,10 +42,8 @@
             <li class="page-header__contacts-item page-header__contacts-item--call">
               <a href="tel:+74950005252"><span>+7 (495) 000 52 52</span></a>
             </li>
-            <li class="page-header__button">
-              <button type="button">заказать звонок</button>
-            </li>
           </ul>
+          <a class="page-header__button">заказать звонок</a>
         </header>
         <div class="top-block__info">
           <h3>печатные платы</h3>
@@ -162,7 +161,9 @@
             </button>
             <form>
               <h3>Остались вопросы? Задайте их нам!</h3>
+              <h3>Закажите звонок</h3>
               <p>Мы проконсультируем Вас бесплатно</p>
+              <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
               <div class="questions__name-tel">
                 <input type="text" id="yourname" name="name" placeholder="Имя" required="">
                 <label for="yourname" class="visually-hidden">Ваше Имя</label>
@@ -175,7 +176,7 @@
                 <input type="checkbox" id="agree" name="agree" value="yes" required="">
                 <label for="agree">Я согласен на обработку персональных данных</label>
                 <input type="submit" value="задать вопрос">
-
+                <input type="submit" value="ОТПРАВИТЬ">
               </div>
             </form>
           </div>
@@ -183,6 +184,7 @@
       </section>
       <div class="popup-gradient"></div>
     </main>
+  </div>
     <footer class="page-footer">
       <h2 class="visually-hidden">футер</h2>
       <div class="page-footer__info">
@@ -223,7 +225,7 @@
           </ul>
         </div>
         <div class="page-footer__blocks blocks">
-          <button type="button" class="blocks__button">
+          <button type="button" class="blocks__button" disabled="">
             разделы сайта
           </button>
           <ul class="blocks__list blocks__list--1">
@@ -253,7 +255,7 @@
           </ul>
         </div>
         <div class="page-footer__contacts contacts">
-          <button type="button" class="contacts__button">
+          <button type="button" class="contacts__button" disabled="">
             Наш офис
           </button>
           <ul class="contacts__list">
