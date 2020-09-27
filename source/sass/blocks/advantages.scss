@@ -77,6 +77,11 @@
   position: absolute;
   left: 44px;
   top: 40px;
+  fill: #00b2ff;
+}
+
+.advantages__item:hover svg {
+  fill: #ffffff;
 }
 
 @media (max-width: $tablet-width) {
